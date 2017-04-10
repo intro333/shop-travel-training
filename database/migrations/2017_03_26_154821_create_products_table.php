@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name', 40);
             $table->text('description');
             $table->double('price')->unsigned();
-            $table->string('image_path', 255);
+            $table->text('features');
             $table->tinyInteger('is_active')->unsigned();
             $table->softDeletes(); //Для мягкого удаления.Создаёт колонку deleted_at.
             $table->timestamps();

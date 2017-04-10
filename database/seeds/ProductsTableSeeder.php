@@ -30,32 +30,15 @@ class ProductsTableSeeder extends Seeder
             'is_active'     => 1,
         ]);
 
-        $productsMeatOrChicken = [
-            ['говядина', '800', '/image/beef.jpg'],
-            ['свинина', '600', '/image/pig.png'],
-            ['телятина', '800', '/image/veal.png'],
-        ];
-        $productsVegetablesAndFruits = [
-            ['помидоры', '200', '/image/tomato.jpg'],
-            ['яблоки', '45', '/image/apple.png'],
-            ['огурцы', '70', '/image/cucumbers.png'],
-        ];
-        foreach ($productsMeatOrChicken as $key => $product) {
+        $json = File::get("database/data/products.json");
+        $data = json_decode($json);
+        foreach ($data as $obj) {
             Product::create([
-                'product_categories_id' => '1',
-                'name' => $product[0],
-                'price' => $product[1],
-                'image_path' => $product[2],
-                'is_active' => 1,
-            ]);
-        }
-        foreach ($productsVegetablesAndFruits as $key => $product) {
-            Product::create([
-                'product_categories_id' => '2',
-                'name' => $product[0],
-                'price' => $product[1],
-                'image_path' => $product[2],
-                'is_active' => 1,
+                'product_categories_id' => $obj->product_categories_id,
+                'name' => $obj->name,
+                'price' => $obj->price,
+                'features' => $obj->features,
+                'is_active' => $obj->is_active,
             ]);
         }
     }

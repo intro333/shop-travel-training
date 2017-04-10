@@ -4,19 +4,19 @@
  *
  * сделал вот по этому мануалу:
  * http://stackoverflow.com/a/28290359/5914609
-
- Добавить в composer.json
-    "autoload": {
-        "classmap": [
-            ...
-        ],
-        "psr-4": {
-            "App\\": "app/"
-        },
-        "files": [
-            "app/helpers.php" // <---- ADD THIS
-        ]
-    }
+ *
+ * Добавить в composer.json
+ *   "autoload": {
+ *       "classmap": [
+ *           ...
+ *       ],
+ *       "psr-4": {
+ *           "App\\": "app/"
+ *       },
+ *       "files": [
+ *           "app/helpers.php" // <---- ADD THIS
+ *       ]
+ *   }
  * и запустить команду composer dump-autoload
  */
 

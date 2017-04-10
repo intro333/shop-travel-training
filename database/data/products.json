@@ -1,0 +1,44 @@
+[
+  {
+    "product_categories_id": "1",
+    "name": "говядина",
+    "price": "800",
+    "features": {"image_path": "/image/beef.jpg"},
+    "is_active": 1
+  },
+  {
+    "product_categories_id": "1",
+    "name": "свинина",
+    "price": "600",
+    "features": {"image_path": "/image/pig.jpg"},
+    "is_active": 1
+  },
+  {
+    "product_categories_id": "1",
+    "name": "телятина",
+    "price": "700",
+    "features": {"image_path": "/image/veal.jpg"},
+    "is_active": 1
+  },
+  {
+    "product_categories_id": "2",
+    "name": "помидоры",
+    "price": "200",
+    "features": {"image_path": "/image/tomato.jpg"},
+    "is_active": 1
+  },
+  {
+    "product_categories_id": "2",
+    "name": "яблоки",
+    "price": "45",
+    "features": {"image_path": "/image/apple.jpg"},
+    "is_active": 1
+  },
+  {
+    "product_categories_id": "2",
+    "name": "огурцы",
+    "price": "70",
+    "features": {"image_path": "/image/cucumbers.jpg"},
+    "is_active": 1
+  }
+]

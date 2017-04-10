@@ -66,13 +66,14 @@ class ProductsController extends Controller
 //        dd($category);
         /*Читатели и преобразователи*/
         /*см. модель Product, getNameAttribute и setNameAttribute*/
-//        $products = Product::active()->get();
-
-
-
-
-
-//        dd($products);
+//        dd($products[0]->created_at->format('d-m-Y'));
+        /*Преобразование в массив--------------------------------*/
+        $products = Product::find(1);
+        $features = $products->features;
+        $features["image_path"] = "/image/beef2.jpg";
+        $products->features = $features;
+        $products->save();
+        dd($products->features);
 
         /*Коллекции*/
 

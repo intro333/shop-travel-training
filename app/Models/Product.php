@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -21,11 +22,22 @@ class Product extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
-
-//    protected $fillable = ['*'];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     protected $guarded = ['product_id'];
+
+    /**
+     * Атрибуты, которые должны быть преобразованы к базовым типам.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'features' => 'array',
+    ];
 
     /*
      * Связь с категориями
@@ -72,4 +84,9 @@ class Product extends Model
     {
         $this->attributes['name'] = mb_ucfirst($value);
     }
+//
+//    public function getCreatedAtAttribute($value)
+//    {
+//        return $value;
+//    }
 }
