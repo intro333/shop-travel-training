@@ -13,4 +13,5 @@
 
 Route::group(['prefix' => 'products'], function () {
     Route::get('/', ['as' => 'products.index', 'uses' => 'ProductsController@index']);
+    Route::get('/collection', ['as' => 'products.collection', 'uses' => 'ProductsController@collection']);
 });

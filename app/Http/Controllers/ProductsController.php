@@ -67,6 +67,7 @@ class ProductsController extends Controller
         /*Читатели и преобразователи*/
         /*см. модель Product, getNameAttribute и setNameAttribute*/
 //        dd($products[0]->created_at->format('d-m-Y'));
+
         /*Преобразование в массив--------------------------------*/
         $products = Product::find(1);
         $features = $products->features;
@@ -75,10 +76,39 @@ class ProductsController extends Controller
         $products->save();
         dd($products->features);
 
-        /*Коллекции*/
-
-
         return \View::make('main.products.index', [
+            'products'  => $products
+        ]);
+    }
+
+    public function collection()
+    {
+        $products = Product::all();
+        /*Сперва удаляем экземпляры, принадлежащие ко 2 категории, затем у оставшихся экз. выводим имена.*/
+//        $productsOne = $products->reject(function ($products) {
+//            return $products->product_categories_id == 2;
+//        })
+//            ->map(function ($products) {
+//                return $products->name;
+//            });
+//        dd($productsOne);
+        /*МЕТОДЫ КОЛЛЕКЦИЙ*/
+        /*Метод all()*/
+//        $collection = collect([1, 2, 3])->all();
+//        dd($collection);
+//        dd($collection[0]->name);
+        /*Метод avg(). Вернём среднее значение цен.*/
+//        $avgPrice = $collection->map(function ($collection) {
+//            return $collection->price;
+//        })->avg();
+//        dd($avgPrice);
+        /*Метод contains()*/
+//        dd($products->contains("name", "Говядина"));
+        /*Метод count()*/
+        dd($products->count());
+
+
+        return \View::make('main.products.collection', [
             'products'  => $products
         ]);
     }
