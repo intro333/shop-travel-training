@@ -105,7 +105,19 @@ class ProductsController extends Controller
         /*Метод contains()*/
 //        dd($products->contains("name", "Говядина"));
         /*Метод count()*/
-        dd($products->count());
+//        dd($products->count());
+        /*Метод diff()*/
+//        $collection = collect([1, 2, 3, 4, 5]);
+//        $diff = $collection->diff([2, 4, 6, 8]);
+//        dd($diff->all());//Todo Так же смотри diffKeys(), который сравнивает по ключам
+        /*Метод except()*/
+//        $products = collect(Product::find(1));
+//        $filtered = $products->except(['bar_code', 'is_active']);
+//        dd($products->all());
+//        $products = $products->map(function ($products) {
+//            return collect($products)->except(['bar_code', 'is_active'])->toArray();
+//        });
+//            dd($products->all());
 
 
         return \View::make('main.products.collection', [
