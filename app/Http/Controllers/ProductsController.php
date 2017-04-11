@@ -147,14 +147,15 @@ class ProductsController extends Controller
 //            });
 //        dd($products);
         /*Метод map().Выше были примеры, но не указывалось, что можно передать значение и ключ.*/
-//        $products = $products->map(function ($value, $key) {
-//            return $value->name . ".Номер: " . ($key + 1);
-//        });
-//        dd($products);
+        $products = $products->map(function ($value, $key) {
+            dump($value->name);
+            return $value->name . ".Номер: " . ($key + 1);
+        });
+        dd($products);
         /*Метод merge() Todo Обработать все продукты и каждому присвоить discount во features.*/
-        $product = collect(Product::find(1));
-        $merged = collect($product['features'])->merge(['discount' => '5']);
-        dd($merged);
+//        $product = collect(Product::find(1));
+//        $merged = collect($product['features'])->merge(['discount' => '5']);
+//        dd($merged);
 
         return \View::make('main.products.collection', [
             'products'  => $products
