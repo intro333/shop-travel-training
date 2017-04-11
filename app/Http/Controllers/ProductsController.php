@@ -135,11 +135,26 @@ class ProductsController extends Controller
 //        $product = collect(Product::find(1));
 //        dd($product->has('description'));
         /* PHP функция рассчёт скидки вместе с array_map */
-        $func = function($value) {
-            return $value['price'] - ($value['price'] / 100 * 5);
-        };
-        $arrMap = array_map($func, $products->toArray());
-        dd($arrMap);
+//        $func = function($value) {
+//            return $value['price'] - ($value['price'] / 100 * 5);
+//        };
+//        $arrMap = array_map($func, $products->toArray());
+//        dd($arrMap);
+        /*Метод last()*/
+//        dd($products->last());
+//        $products = $products->last(function ($key, $value) {
+//                return $value->product_categories_id == 1;
+//            });
+//        dd($products);
+        /*Метод map().Выше были примеры, но не указывалось, что можно передать значение и ключ.*/
+//        $products = $products->map(function ($value, $key) {
+//            return $value->name . ".Номер: " . ($key + 1);
+//        });
+//        dd($products);
+        /*Метод merge() Todo Обработать все продукты и каждому присвоить discount во features.*/
+        $product = collect(Product::find(1));
+        $merged = collect($product['features'])->merge(['discount' => '5']);
+        dd($merged);
 
         return \View::make('main.products.collection', [
             'products'  => $products
