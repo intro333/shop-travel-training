@@ -15,8 +15,6 @@ class Product extends Model
 
     protected $primaryKey = 'product_id';
 
-    protected $hidden = ['bar_code, price'];
-
     protected $softDelete = true;// <-- Используем этот свойство для мягкого удаления.
 
     /**
