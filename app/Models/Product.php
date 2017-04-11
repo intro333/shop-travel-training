@@ -37,6 +37,7 @@ class Product extends Model
      */
     protected $casts = [
         'features' => 'array',
+        'price'    => 'integer'//Todo Для группирования это поле должно быть integer, а в базе оно double.
     ];
 
     /*

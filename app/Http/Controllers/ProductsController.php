@@ -69,12 +69,15 @@ class ProductsController extends Controller
 //        dd($products[0]->created_at->format('d-m-Y'));
 
         /*Преобразование в массив--------------------------------*/
-        $products = Product::find(1);
-        $features = $products->features;
-        $features["image_path"] = "/image/beef2.jpg";
-        $products->features = $features;
-        $products->save();
-        dd($products->features);
+//        $products = Product::find(1);
+//        $features = $products->features;
+//        $features["image_path"] = "/image/beef2.jpg";
+//        $products->features = $features;
+//        $products->save();
+//        dd($products->features);
+        /*Группирование groupBy с условием ------------*/
+        $products = Product::where('price', '>', '100')->get()->groupBy('price');//Для группирования это поле должно быть integer, а в базе оно double.
+        dd($products);
 
         return \View::make('main.products.index', [
             'products'  => $products
@@ -111,14 +114,32 @@ class ProductsController extends Controller
 //        $diff = $collection->diff([2, 4, 6, 8]);
 //        dd($diff->all());//Todo Так же смотри diffKeys(), который сравнивает по ключам
         /*Метод except()*/
-//        $products = collect(Product::find(1));
-//        $filtered = $products->except(['bar_code', 'is_active']);
+//        $product = collect(Product::find(1));
+//        $filtered = $product->except(['bar_code', 'is_active']);
 //        dd($products->all());
 //        $products = $products->map(function ($products) {
 //            return collect($products)->except(['bar_code', 'is_active'])->toArray();
 //        });
-//            dd($products->all());
-
+//        dd($products->all());
+        /*Метод forget()*/
+//        $product = collect(Product::find(1));
+//        $product->forget('description');
+        /*Метод get()*/
+//        $value = $product->get('name', 'default-value');
+//        dd($value);
+        /*Метод  groupBy() ()*/
+//        $grouped = $products->groupBy('product_categories_id');
+//        $grouped = $products->groupBy('price');
+//        dd($grouped);
+        /*Метод has()*/
+//        $product = collect(Product::find(1));
+//        dd($product->has('description'));
+        /* PHP функция рассчёт скидки вместе с array_map */
+        $func = function($value) {
+            return $value['price'] - ($value['price'] / 100 * 5);
+        };
+        $arrMap = array_map($func, $products->toArray());
+        dd($arrMap);
 
         return \View::make('main.products.collection', [
             'products'  => $products
