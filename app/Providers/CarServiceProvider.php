@@ -17,6 +17,13 @@ class CarServiceProvider extends ServiceProvider
     }
 
     /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = true;//Todo Протестить вместе с методом provides()
+
+    /**
      * Register the application services.
      *
      * @return void
@@ -27,5 +34,15 @@ class CarServiceProvider extends ServiceProvider
         $this->app->bind('Nissan', 'App\Services\Cars\Nissan');
         $this->app->when('App\Services\Cars\Jeep')->needs('App\Services\Cars\Fuel')->give('App\Services\Cars\Petrol');
         $this->app->when('App\Services\Cars\Nissan')->needs('App\Services\Cars\Fuel')->give('App\Services\Cars\Diesel');
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['App\Services\Cars\Jeep', 'App\Services\Cars\Nissan'];
     }
 }
