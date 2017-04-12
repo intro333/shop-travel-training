@@ -36,3 +36,5 @@ Route::get('/service-container', function () {
 //    dd($container->make('a'),  $container->make('b'));//Будут разные объекты А
     dd($container->make('a'),  $container->make('b', ['a' => $container->make('a')]));//Объект А будет один и тот же
 });
+
+Route::get('/car', ['as' => 'car.index', 'uses' => 'CarController@index']);

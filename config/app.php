@@ -156,6 +156,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * My App Service Providers...
+         */
+        App\Providers\CarServiceProvider::class,
+
     ],
 
     /*
