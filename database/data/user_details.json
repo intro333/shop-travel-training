@@ -1,0 +1,20 @@
+[
+  {
+    "user_details_id": "1",
+    "user_details_user_id": "1",
+    "fname": "Дмитрий",
+    "sname": "Держаев",
+    "mname": "Сергеевич",
+    "phone": "8(985)851-20-86",
+    "address": ""
+  },
+  {
+    "user_details_id": "2",
+    "user_details_user_id": "2",
+    "fname": "Евгения",
+    "sname": "Держаева",
+    "mname": "Викторовна",
+    "phone": "8(929)111-11-11",
+    "address": ""
+  }
+]

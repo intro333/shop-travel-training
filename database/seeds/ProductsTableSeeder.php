@@ -34,10 +34,11 @@ class ProductsTableSeeder extends Seeder
         $data = json_decode($json);
         foreach ($data as $obj) {
             Product::create([
+                "product_id" => $obj->product_id,
                 'product_categories_id' => $obj->product_categories_id,
-                'name' => $obj->name,
-                'price' => $obj->price,
-                'features' => $obj->features,
+                'name'      => $obj->name,
+                'price'     => $obj->price,
+                'features'  => $obj->features,
                 'is_active' => $obj->is_active,
             ]);
         }

@@ -14,7 +14,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('product_id');
-            $table->integer('product_categories_id')->unsigned();//Поле для foreign key должно быть integer!!!
+            $table->integer('product_categories_id')->unsigned();//Поле для foreign key должно быть integer и ->unsigned()
             $table->string('bar_code', 255);
             $table->string('name', 40);
             $table->text('description');

@@ -1,5 +1,6 @@
 [
   {
+    "product_id": "1",
     "product_categories_id": "1",
     "name": "говядина",
     "price": "800",
@@ -7,6 +8,7 @@
     "is_active": 1
   },
   {
+    "product_id": "2",
     "product_categories_id": "1",
     "name": "свинина",
     "price": "600",
@@ -14,6 +16,7 @@
     "is_active": 1
   },
   {
+    "product_id": "3",
     "product_categories_id": "1",
     "name": "телятина",
     "price": "700",
@@ -21,6 +24,7 @@
     "is_active": 1
   },
   {
+    "product_id": "4",
     "product_categories_id": "2",
     "name": "помидоры",
     "price": "200",
@@ -28,6 +32,7 @@
     "is_active": 1
   },
   {
+    "product_id": "5",
     "product_categories_id": "2",
     "name": "яблоки",
     "price": "45",
@@ -35,6 +40,7 @@
     "is_active": 1
   },
   {
+    "product_id": "6",
     "product_categories_id": "2",
     "name": "огурцы",
     "price": "70",

@@ -65,7 +65,7 @@ class Product extends Model
     }
 
     /**
-     * Получить имя пользователя.
+     * Получить название продукта, где первая буква будет заглавной.
      *
      * @param  string  $value
      * @return string
@@ -76,15 +76,15 @@ class Product extends Model
     }
 
     /**
-     * Установить имя пользователя.
+     * Установить название продукта, где первая буква будет заглавной.
      *
      * @param  string  $value
      * @return string
      */
-    public function setNameAttribute($value)
-    {
-        $this->attributes['name'] = mb_ucfirst($value);
-    }
+//    public function setNameAttribute($value)
+//    {
+//        $this->attributes['name'] = mb_ucfirst($value);
+//    }
 //
 //    public function getCreatedAtAttribute($value)
 //    {
