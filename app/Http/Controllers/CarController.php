@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Cars\Jeep;
+
 class CarController extends Controller
 {
-    public function index()
+    public function index(Jeep $jeep)
     {
 //        $app = \App::make('Jeep');
-        $app = app()->make('Nissan');
-        dd($app->refuel(1));
+//        $app = app()->make('Jeep');
+        dd($jeep->refuel(1));
     }
 }
