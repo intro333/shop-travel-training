@@ -27,5 +27,6 @@ class CarServiceProvider extends ServiceProvider
         $this->app->bind('Nissan', 'App\Services\Cars\Nissan');
         $this->app->when('App\Services\Cars\Jeep')->needs('App\Services\Cars\Fuel')->give('App\Services\Cars\Petrol');
         $this->app->when('App\Services\Cars\Nissan')->needs('App\Services\Cars\Fuel')->give('App\Services\Cars\Diesel');
+        $this->app->bind('App\Services\Mailers\MailerInterface', 'App\Services\Mailers\Mailer');
     }
 }

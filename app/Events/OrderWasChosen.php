@@ -3,7 +3,7 @@
 namespace App\Events;
 
 use App\Events\Event;
-use App\Models\Product;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
@@ -11,16 +11,16 @@ class OrderWasChosen extends Event
 {
     use SerializesModels;
 
-    public $product;
+    public $model;
 
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param Model $model
      */
-    public function __construct(Product $product)
+    public function __construct(Model $model)
     {
-        $this->product = $product;
+        $this->model = $model;
     }
 
     /**
