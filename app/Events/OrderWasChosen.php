@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Events\Event;
+use App\Services\Factory\AbstractModelFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
@@ -16,9 +17,9 @@ class OrderWasChosen extends Event
     /**
      * Create a new event instance.
      *
-     * @param Model $model
+     * @param AbstractModelFactory $model
      */
-    public function __construct(Model $model)
+    public function __construct(AbstractModelFactory $model)
     {
         $this->model = $model;
     }

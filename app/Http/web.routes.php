@@ -38,4 +38,5 @@ Route::get('/service-container', function () {
 });
 
 Route::get('/car', ['as' => 'car.index', 'uses' => 'CarController@index']);
-Route::get('/send_order/{id}', ['as' => 'with_event.index', 'uses' => 'ProductWithEventController@sendOrder']);
+//Route::get('/send_order/{id}', ['as' => 'with_event.index', 'uses' => 'ProductWithEventController@sendOrder']);
+Route::get('/send_order/{id}', ['as' => 'with_event.index', 'uses' => 'OrderWithRealizationController@sendOrder']);

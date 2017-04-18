@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\Mailers\Mailer;
 use Illuminate\Support\ServiceProvider;
 
 class CarServiceProvider extends ServiceProvider
@@ -23,8 +24,9 @@ class CarServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('Jeep', 'App\Services\Cars\Jeep');
-        $this->app->bind('Nissan', 'App\Services\Cars\Nissan');
+//        $this->app->bind('Jeep', 'App\Services\Cars\Jeep');
+//        $this->app->bind('Nissan', 'App\Services\Cars\Nissan');
+        $this->app->bind('App\Services\Cars\Car', 'App\Services\Cars\Jeep');
         $this->app->when('App\Services\Cars\Jeep')->needs('App\Services\Cars\Fuel')->give('App\Services\Cars\Petrol');
         $this->app->when('App\Services\Cars\Nissan')->needs('App\Services\Cars\Fuel')->give('App\Services\Cars\Diesel');
         $this->app->bind('App\Services\Mailers\MailerInterface', 'App\Services\Mailers\Mailer');

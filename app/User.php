@@ -27,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /*
+     * Связь с деталями пользователя.
+     */
+    public function userDetails()
+    {
+        return $this->hasOne('App\Models\UserDetail', 'user_details_user_id', 'user_id');
+    }
 }
