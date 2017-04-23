@@ -2,21 +2,22 @@
 
 namespace App\Services\Factory;
 
-
-use App\User;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class OrderFactory implements AbstractModelFactory
 {
-    public $user;
+    public $collection;
+    public $request;
 
     /**
      * OrderFactory constructor.
-     * @param User $user
+     * @param Collection $collection
+     * @param array $request
      */
-    public function __construct(User $user)
+    public function __construct(Collection $collection, $request)
     {
-        $this->user = $user;
+        $this->collection = $collection;
+        $this->request = $request;
     }
 
     /**
@@ -24,15 +25,17 @@ class OrderFactory implements AbstractModelFactory
      */
     public function getUserData()
     {
-        $userDetails = $this->user->userDetails;
+        $request = $this->request;
+        $collection = $this->collection
+            ->map(function ($collection) use($request) {
+                return [
+                    'email' => $collection->email,
+                    'fname' => $collection->userDetails->fname,
+                    'sname' => $collection->userDetails->sname,
+                    'phone' => $collection->userDetails->phone,
+                ];
+            });
 
-        $data = [
-            'email' => $this->user->email,
-            'fname' => $userDetails->fname,
-            'sname' => $userDetails->sname,
-            'phone' => $userDetails->phone,
-        ];
-
-        return $data;
+        return $collection->first();
     }
 }

@@ -14,13 +14,20 @@ use App\Http\Requests;
 
 class OrderWithRealizationController extends Controller
 {
-    public function sendOrder($email)
+    public function sendOrder($email, Request $request)
     {
-        $orderFactory = new OrderFactory(
-            User::with('userDetails')
-                ->where('email', '=', $email)
-                ->get()->first()
-        );
+        $user = User::with('userDetails')
+            ->where('email', '=', $email)
+            ->get();
+
+        $request = [
+            'order_user_id' => 1,
+            'address_id'    => 1,
+            'comment'       => 'До 14:00',
+            'status'        => 'processed',
+
+        ];
+        $orderFactory = new OrderFactory($user, $request);
 
         event(new OrderWasChosen($orderFactory));
 

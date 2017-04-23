@@ -10,11 +10,22 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//Route::group(array('middleware' => 'cors'), function () {
+    Route::post('/sessionAddProduct',
+        array('as' => 'session_add_product',
+            'uses' => 'Api\OrderApiController@sessionAddProduct'));
+//});
 
 Route::group(['prefix' => 'products'], function () {
     Route::get('/', ['as' => 'products.index', 'uses' => 'ProductsController@index']);
     Route::get('/collection', ['as' => 'products.collection', 'uses' => 'ProductsController@collection']);
 });
+//Префикс для теста вёрстки
+Route::group(['prefix' => 'layout'], function () {
+    Route::get('/meat-and-chicken', ['as' => 'layout.meat-and-chicken', 'uses' => 'LayoutController@meatAndChicken']);
+    Route::post('/add-product', ['as' => 'layout.add-product', 'uses' => 'LayoutController@addProduct']);
+});
+
 
 Route::get('/service-container', function () {
 //    $class = new ReflectionClass(\App\Http\Kernel::class);
@@ -40,3 +51,5 @@ Route::get('/service-container', function () {
 Route::get('/car', ['as' => 'car.index', 'uses' => 'CarController@index']);
 //Route::get('/send_order/{id}', ['as' => 'with_event.index', 'uses' => 'ProductWithEventController@sendOrder']);
 Route::get('/send_order/{id}', ['as' => 'with_event.index', 'uses' => 'OrderWithRealizationController@sendOrder']);
+Route::get('/sessionSetProduct/{id}', ['as' => 'session_set_product', 'uses' => 'Api\OrderApiController@sessionSetProduct']);
+

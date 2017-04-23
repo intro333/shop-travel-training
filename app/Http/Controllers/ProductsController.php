@@ -77,7 +77,7 @@ class ProductsController extends Controller
 //        dd($products->features);
         /*Группирование groupBy с условием ------------*/
         $products = Product::where('price', '>', '100')->get()->groupBy('price');//Для группирования это поле должно быть integer, а в базе оно double.
-        dd($products);
+//        dd($products);
 
         return \View::make('main.products.index', [
             'products'  => $products
