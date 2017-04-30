@@ -1,8 +1,9 @@
 <?php
 
-use App\Models\UserDetail;
-use App\User;
+//use App\Models\UserDetail;
+//use App\User;
 use Illuminate\Database\Seeder;
+use App\MongoModels\User;
 
 class UserTableSeeder extends Seeder
 {
@@ -13,8 +14,8 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('users')->delete();
-        \DB::table('user_details')->delete();
+//        \DB::table('users')->delete();
+//        \DB::table('user_details')->delete();
 
         $users = File::get("database/data/users.json");
         $data = json_decode($users);
@@ -27,18 +28,18 @@ class UserTableSeeder extends Seeder
             ]);
         }
 
-        $usersDetails = File::get("database/data/user_details.json");
-        $data = json_decode($usersDetails);
-        foreach ($data as $obj) {
-            UserDetail::create([
-                'user_details_id'       => $obj->user_details_id,
-                'user_details_user_id'  => $obj->user_details_user_id,
-                'fname'      => $obj->fname,
-                'sname'      => $obj->sname,
-                'mname'      => $obj->mname,
-                'phone'      => $obj->phone,
-                'address'    => $obj->address,
-            ]);
-        }
+//        $usersDetails = File::get("database/data/user_details.json");
+//        $data = json_decode($usersDetails);
+//        foreach ($data as $obj) {
+//            UserDetail::create([
+//                'user_details_id'       => $obj->user_details_id,
+//                'user_details_user_id'  => $obj->user_details_user_id,
+//                'fname'      => $obj->fname,
+//                'sname'      => $obj->sname,
+//                'mname'      => $obj->mname,
+//                'phone'      => $obj->phone,
+//                'address'    => $obj->address,
+//            ]);
+//        }
     }
 }

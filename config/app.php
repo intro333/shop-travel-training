@@ -160,6 +160,7 @@ return [
          * My App Service Providers...
          */
         App\Providers\CarServiceProvider::class,
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
 
     ],
 
@@ -206,6 +207,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        //My Aliases
+        'Moloquent'       => Jenssegers\Mongodb\Eloquent\Model::class,
 
     ],
 
