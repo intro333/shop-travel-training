@@ -48,3 +48,37 @@
     "is_active": 1
   }
 ]
+//,
+//{
+//"category_id" : "vegetables_fruits",
+//"name"        : "Овощи, фрукты",
+//"description" : "Овощи, фрукты",
+//"image_path"  : "/uploads/vegetables-and-fruits",
+//"is_active"   : "1",
+//"products"    : [
+//{
+//"_id": "4",
+//"product_categories_id": "2",
+//"name": "помидоры",
+//"price": "200",
+//"features": {"image_path": "/image/tomato.jpg"},
+//"is_active": 1
+//},
+//{
+//"_id": "5",
+//"product_categories_id": "2",
+//"name": "яблоки",
+//"price": "45",
+//"features": {"image_path": "/image/apple.jpg"},
+//"is_active": 1
+//},
+//{
+//"_id": "6",
+//"product_categories_id": "2",
+//"name": "огурцы",
+//"price": "70",
+//"features": {"image_path": "/image/cucumbers.jpg"},
+//"is_active": 1
+//}
+//]
+//}

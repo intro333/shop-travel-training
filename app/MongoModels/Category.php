@@ -10,5 +10,10 @@ class Category extends Eloquent
 
     protected $guarded = ['_id'];
 
-    public $timestamps = false;
+    public function products()
+    {
+        return $this->embedsMany('App\MongoModels\Product');
+    }
+
+//    public $timestamps = false;
 }
